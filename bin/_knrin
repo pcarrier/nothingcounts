@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+cache() {
+    status=$?
+    nix --extra-experimental-features nix-command copy --all --to "$CACHE_URL"
+    exit $status
+}
+trap cache EXIT
+
+set -xeuo pipefail
+echo 16384 > /proc/sys/user/max_user_namespaces
+# We need impurity to read environment variables.
+/bin/nr --impure "$@"

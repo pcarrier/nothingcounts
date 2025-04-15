@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -xeuo pipefail
+ENV=$1
+shift
+exec nr ".#${ENV}-trampoline" /bin/_knrin "$@"

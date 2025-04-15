@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -xeuo pipefail
+ENV=${1:-minikube}
+nr ".#${ENV}-down"

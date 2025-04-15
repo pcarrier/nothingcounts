@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -euo pipefail
+set -x
+exec nix run --extra-experimental-features 'nix-command flakes' --log-format bar-with-logs --show-trace "$@"

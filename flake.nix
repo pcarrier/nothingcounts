@@ -64,6 +64,7 @@
                 go
                 gcloud
                 kubectl
+                nil # language server
               ];
           };
         };
@@ -289,9 +290,16 @@
                   ''
                 else if env.kind == "minikube" then
                   ''
+                    ${pkgs.docker}/bin/docker network inspect minikube > /dev/null 2>&1 || \
+                    ${pkgs.docker}/bin/docker network create \
+                      --driver=bridge \
+                      --subnet=10.42.42.0/24 \
+                      --gateway=10.42.42.1 \
+                      minikube
                     ${pkgs.minikube}/bin/minikube status > /dev/null 2>&1 || \
                     ${pkgs.minikube}/bin/minikube start \
                       --driver=docker \
+                      --network=minikube \
                       --static-ip 10.42.42.42 \
                       --memory=max \
                       --cpus=max

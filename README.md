@@ -18,8 +18,8 @@ This is an illustration of maximal Nix and the trampoline technique in preparati
 - Any kind of CI/CD.
 - Requesting and limiting Kubernetes resources. We run cheap!
 - Fine-grained access control. Trampolines can do a lot more than they strictly need to.
-- Multiple regions and architectures, though we've structured for them.
-- A useful workload…
+- Useful workloads.
+- Abstractions scaling gracefully to many services.
 
 ## Feedback
 

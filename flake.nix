@@ -345,7 +345,7 @@
             k8stailexit = pkgs.buildGoModule {
               name = "k8stailexit";
               src = ./k8s/tailexit;
-              vendorHash = "sha256-99TquUlreFbu/IP5valj9n+15T1YmMM9Xb+eYlPFbZE=";
+              vendorHash = "sha256-Pbd2MLgOZESMtwqO/Lm0BzUJkyZz7uVOJEZyEXcjI8U=";
             };
           }
           // (

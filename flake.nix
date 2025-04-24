@@ -390,9 +390,11 @@
                 let
                   envPackages = with self.envPackages.${system}; {
                     config = config;
-                    down = down;
+                    tofu-apply = tofuApply;
                     kube-greetings = kubeGreetings;
                     trampoline = trampoline;
+                    tofu-destroy = tofuDestroy;
+                    down = down;
                   };
                 in
                 lib.mapAttrs' (name: pkg: lib.nameValuePair "${env.name}-${name}" (pkg env)) envPackages;
